@@ -63,3 +63,8 @@ export const realm = 'brs'
 // export const realm = 'qian'
 // 最新版v1.3.1
 // export const realm = 'atl'
+
+/**
+ * 本地缓存
+ */
+export const storageType = sessionStorage

@@ -7,8 +7,10 @@ import _http from './http'
 export const clientId = _config.clientId
 export const realm = _config.realm
 export const ipConfig = _config.ipConfig
+
 export const http = _http
-export const storage = _storage
+
+export const storage = new _storage(_config.storageType)
 
 export const message = _message.message
 
