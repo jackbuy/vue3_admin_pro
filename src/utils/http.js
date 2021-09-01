@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-import { storage, message } from '@/utils'
+import { storage, message, getApiUrl } from '@/utils'
 
 // 请求拦截器
 axios.interceptors.request.use(function(config) {
@@ -27,7 +27,7 @@ axios.interceptors.response.use(function(response) {
 })
 
 /**
- * request
+ * http
  * @author zhaozj
  * @description http请求封装
  * @param {String}    url        api地址             必须
@@ -39,13 +39,14 @@ axios.interceptors.response.use(function(response) {
 const http = ({
     method,
     url,
+    context,
     data,
     header = {}
 }) => {
     return new Promise((resolve, reject) => {
         const params = {
             method,
-            url,
+            url: getApiUrl(url, context),
             data
         }
         if (Object.keys(header).length) {

@@ -5,11 +5,9 @@ import {
     ElButton
 } from 'element-plus'
 import './login.scss'
-import {
-    // loginUPMS,
-    loginKeycloak
-} from './async'
-import { message } from '@/utils'
+
+import { message, storage } from '@/utils'
+import { loginKeycloak } from './async'
 
 export default defineComponent({
     setup() {
@@ -34,7 +32,12 @@ export default defineComponent({
                 password
             }
             loginKeycloak(params).then((res) => {
-                console.log(res)
+                const userInfo = {
+                    username: params.username,
+                    token: res.access_token,
+                    refreshToken: res.refresh_token
+                }
+                storage.set('userInfo', JSON.stringify(userInfo))
                 router.push({
                     path: '/case'
                 })
