@@ -11,12 +11,7 @@
 
 import axios from 'axios'
 import qs from 'qs'
-import { storage, message, getApiUrl, http as _http, toLogin } from '@/utils'
-
-// apis
-const apis = {
-    getToken: (company) => `/auth/realms/${company}/protocol/openid-connect/token`
-}
+import { storage, message, getApiUrl, http as _http, toLogin, getTokenConfig } from '@/utils'
 
 // 是否正在刷新的标记
 let isRefreshing = false
@@ -30,8 +25,8 @@ const refreshToken = () => {
         if (!userInfo) return reject(new Error())
         const { refreshToken, username, company } = JSON.parse(userInfo)
         const params = {
-            url: apis.getToken(company),
-            context: 'keycloak',
+            url: getTokenConfig.url(company),
+            context: getTokenConfig.context,
             method: 'POST',
             data: {
                 client_id: 'brs',

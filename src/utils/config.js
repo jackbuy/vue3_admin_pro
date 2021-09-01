@@ -68,3 +68,11 @@ export const realm = 'brs'
  * 本地缓存
  */
 export const storageType = sessionStorage
+
+/**
+ * 获取、刷新token 的配置
+ */
+export const getTokenConfig = {
+    url: (company) => `/auth/realms/${company}/protocol/openid-connect/token`,
+    context: 'keycloak'
+}

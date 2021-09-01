@@ -7,6 +7,7 @@ import _http from './http'
 export const clientId = _config.clientId
 export const realm = _config.realm
 export const ipConfig = _config.ipConfig
+export const getTokenConfig = _config.getTokenConfig
 
 export const http = _http
 

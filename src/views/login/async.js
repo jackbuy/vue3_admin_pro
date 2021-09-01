@@ -1,22 +1,16 @@
-import { clientId, realm, http } from '@/utils'
-
-const apis = {
-    getToken: `/auth/realms/${realm}/protocol/openid-connect/token`
-    // getUpmsToken: '/user/login'
-}
+import { clientId, realm, http, getTokenConfig } from '@/utils'
 
 // 登录Keycloak
 export const loginKeycloak = (form) => http({
-    url: apis.getToken,
-    context: 'keycloak',
+    url: getTokenConfig.url(realm),
+    context: getTokenConfig.context,
     method: 'POST',
     data: {
         client_id: clientId,
         grant_type: 'password',
         ...form
     },
-    header: { 'content-type': 'application/x-www-form-urlencoded' },
-    errorMsg: '用户名密码或错误！'
+    header: { 'content-type': 'application/x-www-form-urlencoded' }
 })
 
 // 登录upms
