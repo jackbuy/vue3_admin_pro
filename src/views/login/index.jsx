@@ -6,7 +6,7 @@ import {
 } from 'element-plus'
 import './login.scss'
 
-import { message, storage } from '@/utils'
+import { message, storage, realm } from '@/utils'
 import { loginKeycloak } from './async'
 
 export default defineComponent({
@@ -33,6 +33,7 @@ export default defineComponent({
             }
             loginKeycloak(params).then((res) => {
                 const userInfo = {
+                    company: realm,
                     username: params.username,
                     token: res.access_token,
                     refreshToken: res.refresh_token

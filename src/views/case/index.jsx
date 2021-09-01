@@ -3,13 +3,15 @@ import { getList } from './async'
 
 export default defineComponent({
     setup() {
-        const s = ref('')
+        const s = ref([])
         getList().then((res) => {
-            console.log('then', res)
             s.value = res.data
-        }).catch((err) => {
-            console.log('catch', err)
         })
-        return () => <div>case {s.value}</div>
+        return () => <div>
+            <div>事件</div>
+            {
+                s.value.map(item => <div>{ item.name }</div>)
+            }
+        </div>
     }
 })

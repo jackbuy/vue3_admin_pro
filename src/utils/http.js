@@ -17,9 +17,7 @@ const refreshToken = () => {
     return new Promise((resolve, reject) => {
         const userInfo = storage.get('userInfo')
         if (!userInfo) return reject(new Error())
-        const refreshToken = JSON.parse(userInfo).refreshToken
-        const username = userInfo.username
-        const company = userInfo.company
+        const { refreshToken, username, company } = JSON.parse(userInfo)
         const params = {
             url: apis.getToken(company),
             context: 'keycloak',

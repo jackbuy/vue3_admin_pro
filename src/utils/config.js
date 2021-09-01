@@ -45,7 +45,7 @@
 //     fileLoadServer: 'http://119.23.10.4/'
 // }
 
-// local 调试环境
+// localhost 调试环境
 export const ipConfig = {
     keycloak: 'http://192.168.2.26:20000'
 }

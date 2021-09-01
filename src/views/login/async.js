@@ -1,8 +1,8 @@
 import { clientId, realm, http } from '@/utils'
 
 const apis = {
-    getToken: `/auth/realms/${realm}/protocol/openid-connect/token`,
-    getUpmsToken: '/user/login'
+    getToken: `/auth/realms/${realm}/protocol/openid-connect/token`
+    // getUpmsToken: '/user/login'
 }
 
 // 登录Keycloak

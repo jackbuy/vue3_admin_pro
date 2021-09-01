@@ -3,21 +3,25 @@
  */
 
 class Storage {
+    constructor(sessionType) {
+        this.sessionType = sessionType
+    }
+
     get(name) {
-        return sessionStorage.getItem(name)
+        return this.sessionType.getItem(name)
     }
 
     set(name, value) {
-        return sessionStorage.setItem(name, value)
+        return this.sessionType.setItem(name, value)
     }
 
     remove(name) {
-        return sessionStorage.removeItem(name)
+        return this.sessionType.removeItem(name)
     }
 
     clear() {
-        return sessionStorage.clear()
+        return this.sessionType.clear()
     }
 }
 
-export default new Storage()
+export default new Storage(sessionStorage)
