@@ -8,7 +8,7 @@ const apis = {
 // 获取列表
 export const getList = () => http({
     url: apis.bookList,
-    context: 'ibook',
+    context: 'keycloak',
     method: 'POST',
     data: {
         currentPage: 1,

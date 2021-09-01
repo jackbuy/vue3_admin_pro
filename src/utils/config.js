@@ -3,7 +3,7 @@
  */
 
 // atl配置
-// const ipConfig = {
+// export const ipConfig = {
 //     kpi: 'http://172.23.52.19:10008', // (kpi) 24
 //     message: 'http://172.23.52.19:10005', // (消息) 23
 //     follow: 'http://172.23.52.19:10006', // (关注) 22
@@ -17,7 +17,7 @@
 // }
 
 // 本地调试 - 开发环境
-// const ipConfig = {
+// export const ipConfig = {
 //     kpi: 'http://192.168.2.220:10024', // (kpi) 24
 //     message: 'http://192.168.2.220:10023', // (消息) 23
 //     follow: 'http://192.168.2.220:10022', // (关注) 22
@@ -32,7 +32,7 @@
 // }
 
 // 外网 - 阿里云测试环境
-// const ipConfig = {
+// export const ipConfig = {
 //     kpi: 'http://39.100.81.88:10024', // (kpi) 24
 //     message: 'http://39.100.81.88:10023', // (消息) 23
 //     follow: 'http://39.100.81.88:10022', // (关注) 22
@@ -46,27 +46,20 @@
 // }
 
 // local 调试环境
-const ipConfig = {
-    ibook: 'http://192.168.2.26:20000',
-    keycloak: 'http://39.100.78.58:8004'
+export const ipConfig = {
+    keycloak: 'http://192.168.2.26:20000'
 }
 
 /**
  * 客户端环境
  */
-const clientId = 'brs'
+export const clientId = 'brs'
 
 /**
  * 客户端租户
  */
 // 最新版v1.0.0.36
-const realm = 'brs'
+export const realm = 'brs'
 // export const realm = 'qian'
 // 最新版v1.3.1
 // export const realm = 'atl'
-
-export default {
-    realm,
-    clientId,
-    ipConfig
-}
