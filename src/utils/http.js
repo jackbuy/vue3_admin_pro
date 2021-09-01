@@ -1,3 +1,14 @@
+/**
+ * http
+ * @author zhaozj
+ * @description http请求封装
+ * @param {Objet}     context    IP                  必须
+ * @param {String}    url        api地址             必须
+ * @param {Objet}     data       请求参数
+ * @param {String}    method     支持 GET、POST、PUT
+ * @param {Objet}     header     自定义header
+ */
+
 import axios from 'axios'
 import qs from 'qs'
 import { storage, message, getApiUrl, http as _http, toLogin } from '@/utils'
@@ -91,7 +102,7 @@ axios.interceptors.response.use(function(response) {
         }
     } else {
         if (code !== 200 && !response.data.access_token) {
-            message(messageI18nCode, 'warning')
+            message({ message: messageI18nCode })
             return Promise.reject(new Error(messageI18nCode))
         } else {
             return Promise.resolve(response.data)
@@ -101,16 +112,6 @@ axios.interceptors.response.use(function(response) {
     return Promise.reject(error)
 })
 
-/**
- * http
- * @author zhaozj
- * @description http请求封装
- * @param {Objet}     context    IP                  必须
- * @param {String}    url        api地址             必须
- * @param {Objet}     data       请求参数
- * @param {String}    method     支持 GET、POST、PUT
- * @param {Objet}     header     自定义header
- */
 const http = ({
     context,
     url,

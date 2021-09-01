@@ -6,7 +6,7 @@ import {
 } from 'element-plus'
 import './login.scss'
 
-import { message, storage, realm } from '@/utils'
+import { message, messageBox, storage, realm } from '@/utils'
 import { loginKeycloak } from './async'
 
 export default defineComponent({
@@ -22,26 +22,32 @@ export default defineComponent({
         }
 
         const handleSubmit = () => {
-            const { username, password } = state.form
-            if (!username) return message('请输入账号')
-            if (!password) return message('请输入密码')
-            if (isChineseChar(username)) return message('账号不能包含中文')
-            if (isChineseChar(password)) return message('密码不能包含中文')
-            const params = {
-                username: username.toLowerCase(),
-                password
-            }
-            loginKeycloak(params).then((res) => {
-                const userInfo = {
-                    company: realm,
-                    username: params.username,
-                    token: res.access_token,
-                    refreshToken: res.refresh_token
+            messageBox({
+                message: '确认提交吗'
+            }).then(() => {
+                const { username, password } = state.form
+                if (!username) return message({ message: '请输入账号' })
+                if (!password) return message({ message: '请输入密码' })
+                if (isChineseChar(username)) return message({ message: '账号不能包含中文' })
+                if (isChineseChar(password)) return message({ message: '密码不能包含中文' })
+                const params = {
+                    username: username.toLowerCase(),
+                    password
                 }
-                storage.set('userInfo', JSON.stringify(userInfo))
-                router.push({
-                    path: '/case'
+                loginKeycloak(params).then((res) => {
+                    const userInfo = {
+                        company: realm,
+                        username: params.username,
+                        token: res.access_token,
+                        refreshToken: res.refresh_token
+                    }
+                    storage.set('userInfo', JSON.stringify(userInfo))
+                    router.push({
+                        path: '/case'
+                    })
                 })
+            }).catch(() => {
+                alert('我取消了')
             })
         }
         return () => {

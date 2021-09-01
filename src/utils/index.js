@@ -13,6 +13,7 @@ export const http = _http
 export const storage = new _storage(_config.storageType)
 
 export const message = _message.message
+export const messageBox = _message.messageBox
 
 export const getApiUrl = _tools.getApiUrl
 export const toLogin = _tools.toLogin
