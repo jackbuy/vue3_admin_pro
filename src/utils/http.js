@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-import { storage, message, getApiUrl, http as _http } from '@/utils'
+import { storage, message, getApiUrl, http as _http, toLogin } from '@/utils'
 
 // apis
 const apis = {
@@ -77,7 +77,7 @@ axios.interceptors.response.use(function(response) {
                 return axios(config)
             }).catch(res => {
                 // 刷新token失败，跳转到登录页
-
+                toLogin()
             }).finally(() => {
                 isRefreshing = false
             })
@@ -138,6 +138,7 @@ const http = ({
                 }
             } else {
                 // 没有token, 跳转到登录
+                toLogin()
             }
         }
         axios(params).then((res) => {
