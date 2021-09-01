@@ -1,5 +1,5 @@
 import _config from './config'
-import _message from './message'
+import * as _message from './message'
 import _storage from './storage'
 import _http from './http'
 import _tools from './tools'
