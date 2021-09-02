@@ -1,0 +1,70 @@
+
+.systems,
+.menus{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $systemWidth;
+    z-index: 2;
+    font-size: 12px;
+}
+
+.menus{
+    left: $menusLeft;
+    width: $menusWidth;
+    background: $systemActiveBgColor;
+    z-index: 1;
+}
+
+.systems{
+    background: $systemBgColor;
+    &__item{
+        padding: $systemGutter / 2;
+        width: $systemWidth;
+        cursor: pointer;
+        opacity: 0.3;
+        &.active{
+            background: $systemActiveBgColor;
+            opacity: 1;
+        }
+        &-icon{
+            width: $systemIconWidth;
+            height: $systemIconHeight;
+            background: $systemIconBgColor;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+        &-title{
+            width: $systemTitleWidth;
+            text-align: center;
+            padding-top: $systemTitleGutter;
+            font-weight: bold;
+        }
+    }
+}
+
+.menus{
+    padding: $menuGutter / 2;
+    &__item{
+        background: $menuBgColor;
+        padding: $menuGutter / 1.5;
+        border-radius: 4px;
+        margin: $menuGutter / 4 0;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.3s;
+        color: $menuTitleColor;
+        &.active{
+            color: $menuTitleActiveColor;
+            opacity: 1;
+            font-weight: bold;
+        }
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+}

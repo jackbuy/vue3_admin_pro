@@ -1,0 +1,15 @@
+$breadnavHeight: 40px;
+$breadnavLeft: $systemWidth + $menusWidth;
+$breadnavBgColor: #fff;
+.breadnav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: $breadnavLeft;
+    height: $breadnavHeight;
+    line-height: $breadnavHeight;
+    box-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.2);
+    font-size: 12px;
+    padding-left: 10px;
+    background: $breadnavBgColor;
+}

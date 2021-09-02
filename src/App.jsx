@@ -1,7 +1,9 @@
 import { defineComponent } from 'vue'
+import Layout from './components/layout'
 
 export default defineComponent({
     setup() {
-        return () => <router-view/>
+        return () => <Layout/>
+        // return () => <router-view/>
     }
 })

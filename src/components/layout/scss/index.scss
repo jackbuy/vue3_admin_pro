@@ -1,0 +1,21 @@
+// 系统
+$systemWidth: 70px;
+$systemGutter: 20px;
+$systemBgColor: #fff;
+$systemIconWidth: $systemWidth - $systemGutter;
+$systemIconHeight: $systemWidth - $systemGutter;
+$systemTitleWidth: $systemIconWidth;
+$systemTitleGutter: $systemGutter / 2;
+$systemIconBgColor: #e1e1e1;
+$systemActiveBgColor: #eee;
+
+// 菜单
+$menusWidth: 220px;
+$menusLeft: $systemWidth;
+$menuGutter: $systemGutter;
+$menuTitleColor: #000;
+$menuTitleActiveColor: #000;
+$menuBgColor: #fff;
+
+@import './side.scss';
+@import './breadnav.scss';
