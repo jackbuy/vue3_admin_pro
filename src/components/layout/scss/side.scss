@@ -3,7 +3,8 @@
 .menus{
     position: absolute;
     left: 0;
-    top: 0;
+    top: $systemTop;
+    // bottom: $systemBottom;
     bottom: 0;
     width: $systemWidth;
     z-index: 2;
@@ -64,7 +65,7 @@
             font-weight: bold;
         }
         &:hover{
-            opacity: 0.7;
+            opacity: 1;
         }
     }
 }

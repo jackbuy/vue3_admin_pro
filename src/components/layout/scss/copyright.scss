@@ -1,0 +1,19 @@
+.copyright{
+    position: absolute;
+    left: $copyrightWidth;
+    bottom: 0;
+    height: $copyrightHeight;
+    line-height: $copyrightHeight;
+    font-size: 12px;
+    // width: $copyrightWidth;
+    right: 0;
+    padding-left: $systemGutter / 2;
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+    display: flex;
+    .right{
+        text-align: right;
+        flex: 1;
+        padding-right: $systemGutter / 4;
+    }
+}

@@ -1,0 +1,74 @@
+.user-card{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $userCardWidth;
+    height: $userCardHeight;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    &__side{
+        padding: 0 $systemGutter / 2;
+        &-icon{
+            width: 50px;
+            height: 50px;
+            border-radius: 60px;
+            background: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #898989;
+        }
+    }
+    &__content{
+        padding: 0 $systemGutter / 2;
+        &-user,
+        &-org{
+            line-height: 1.8;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: $menusWidth - 10px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        &-user{
+            font-size: 16px;
+        }
+        &-menu{
+            display: flex;
+            &-item{
+                width: 30px;
+                height: 30px;
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 8px;
+                margin-top: 8px;
+                cursor: pointer;
+                opacity: 0.6;
+                transition: all 0.3s;
+                border-radius: 4px;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.user-card-menu-more-item{
+    cursor: pointer;
+    display: flex;
+    padding: 10px;
+    border-radius: 4px;
+    &:hover{
+        background: #eee;
+    }
+    &__icon{}
+    &__title{
+        padding-left: 10px;
+    }
+}

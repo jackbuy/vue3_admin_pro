@@ -1,5 +1,13 @@
+// userCard
+$userCardHeight: 110px;
+
+// copyright
+$copyrightHeight: 24px;
+
 // 系统
 $systemWidth: 70px;
+$systemTop: $userCardHeight;
+$systemBottom: $copyrightHeight;
 $systemGutter: 20px;
 $systemBgColor: #fff;
 $systemIconWidth: $systemWidth - $systemGutter;
@@ -17,5 +25,14 @@ $menuTitleColor: #000;
 $menuTitleActiveColor: #000;
 $menuBgColor: #fff;
 
+// userCard
+$userCardWidth: $systemWidth + $menusWidth;
+
+
+// copyright
+$copyrightWidth: $systemWidth + $menusWidth;
+
 @import './side.scss';
 @import './breadnav.scss';
+@import './userCard.scss';
+@import './copyright.scss';

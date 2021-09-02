@@ -1,9 +1,19 @@
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
+import { ElScrollbar } from 'element-plus'
 
 export default defineComponent({
     setup() {
+        const menus = inject('breadnavs')
         return () => <div class="breadnav">
-            关账系统 / 任务名称管理
+            <ElScrollbar>
+                <div class="breadnav__content" style={{ width: `${120 * menus.length}px` }}>
+                    {
+                        menus.map(item => (
+                            <div class={ item.active === 'active' ? 'active' : '' }>{ item.name }</div>
+                        ))
+                    }
+                </div>
+            </ElScrollbar>
         </div>
     }
 })
